@@ -1,0 +1,44 @@
+class GroceryStack {
+  constructor() {
+    this.items = [];
+  }
+
+  peek() {
+    if (this.isEmpty()) {
+      return "Stack is empty";
+    }
+    return this.items[this.items.length - 1];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  push(item) {
+    this.items.push(item);
+    console.log("Pushed:", item);
+    console.log("Stack:", this.items);
+  }
+
+  pop() {
+    if (this.isEmpty()) {
+      console.log("Stack is empty");
+      return null;
+    }
+    const removedItem = this.items.pop();
+    console.log("Popped:", removedItem);
+    console.log("Stack:", this.items);
+    return removedItem;
+  }
+}
+
+const groceryStack = new GroceryStack();
+
+for (let i = 0; i < 5; i++) {
+  const item = prompt(`Enter grocery item ${i + 1}:`);
+  groceryStack.push(item);
+}
+
+groceryStack.pop();
+
+console.log("Top item:", groceryStack.peek());
