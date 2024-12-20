@@ -1,0 +1,17 @@
+const namesInput = prompt("Enter names separated by commas:");
+const namesArray = namesInput.split(",");
+
+const agesInput = prompt("Enter ages separated by commas:");
+const agesArray = agesInput.split(",").map(Number);
+
+const initialArray = [namesArray, agesArray];
+
+const restructuredArray = [];
+for (let i = 0; i < namesArray.length; i++) {
+  restructuredArray.push([namesArray[i], agesArray[i]]);
+}
+
+console.log("Restructured Array:");
+for (const subArray of restructuredArray) {
+  console.log(subArray);
+}
