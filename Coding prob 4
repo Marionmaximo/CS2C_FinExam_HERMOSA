@@ -1,0 +1,49 @@
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  append(value) {
+    const newNode = new Node(value);
+
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = newNode;
+    }
+
+    this.size++;
+  }
+
+  print() {
+    let current = this.head;
+    let result = "";
+
+    while (current) {
+      result += `${current.value}\n`;
+      current = current.next;
+    }
+
+    console.log(result);
+  }
+}
+
+const myLinkedList = new LinkedList();
+
+myLinkedList.append("Data Structures - Array");
+myLinkedList.append("Variable Type - Integer");
+myLinkedList.append("Sorting Algorithm - Bubble Sort");
+
+myLinkedList.print();
